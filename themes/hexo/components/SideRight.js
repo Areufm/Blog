@@ -46,6 +46,8 @@ export default function SideRight(props) {
 
   return (
     <div id='sideRight' className={className}>
+
+      {/* 个人信息卡片 */}
       <InfoCard {...props} />
       {siteConfig('HEXO_WIDGET_ANALYTICS', null, CONFIG) && <AnalyticsCard {...props} />}
 
@@ -67,17 +69,19 @@ export default function SideRight(props) {
         </Card>
       )}
       
+      {/* 目录进度条 */}
       <div className='sticky top-20'>
         {post && post.toc && post.toc.length > 1 && <Card>
               <Catalog toc={post.toc} />
             </Card>}
       </div>
       
-
+      {/* 最近文章 */}
       {siteConfig('HEXO_WIDGET_LATEST_POSTS', null, CONFIG) && latestPosts && latestPosts.length > 0 && <Card>
         <LatestPostsGroup {...props} />
       </Card>}
 
+        {/* 公告 */}
       <Announcement post={notice}/>
 
       {siteConfig('COMMENT_WALINE_SERVER_URL') && siteConfig('COMMENT_WALINE_RECENT') && <HexoRecentComments/>}
