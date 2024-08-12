@@ -69,13 +69,6 @@ export default function SideRight(props) {
         </Card>
       )}
       
-      {/* 目录进度条 */}
-      <div className='sticky top-20'>
-        {post && post.toc && post.toc.length > 1 && <Card>
-              <Catalog toc={post.toc} />
-            </Card>}
-      </div>
-      
       {/* 最近文章 */}
       {siteConfig('HEXO_WIDGET_LATEST_POSTS', null, CONFIG) && latestPosts && latestPosts.length > 0 && <Card>
         <LatestPostsGroup {...props} />
@@ -87,6 +80,10 @@ export default function SideRight(props) {
       {siteConfig('COMMENT_WALINE_SERVER_URL') && siteConfig('COMMENT_WALINE_RECENT') && <HexoRecentComments/>}
 
       <div className='sticky top-20'>
+        {/* 目录进度条 */}
+        {post && post.toc && post.toc.length > 1 && <Card>
+              <Catalog toc={post.toc} />
+            </Card>}
         {rightAreaSlot}
         <FaceBookPage/>
         <Live2D />
