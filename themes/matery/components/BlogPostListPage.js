@@ -20,23 +20,45 @@ const BlogPostListPage = ({ page = 1, posts = [], postCount, siteInfo }) => {
   if (!posts || posts.length === 0 || page > totalPage) {
     return <BlogPostListEmpty />
   } else {
+    // return (
+    //   <div className='w-full'>
+    //     <div className='pt-6'></div>
+    //     {/* 文章列表 */}
+    //     <div className='pt-4 flex flex-wrap pb-12'>
+    //       {posts?.map((post, index) => (
+    //         <div key={post.id} className='xl:w-1/3 md:w-1/2 w-full p-4'>
+    //           {' '}
+    //           <BlogPostCard index={index} post={post} siteInfo={siteInfo} />
+    //         </div>
+    //       ))}
+    //     </div>
+    //     {showPagination && (
+    //       <PaginationSimple page={page} totalPage={totalPage} />
+    //     )}
+    //   </div>
+    // )
     return (
-      <div className='w-full'>
-        <div className='pt-6'></div>
-        {/* 文章列表 */}
-        <div className='pt-4 flex flex-wrap pb-12'>
-          {posts?.map((post, index) => (
-            <div key={post.id} className='xl:w-1/3 md:w-1/2 w-full p-4'>
-              {' '}
-              <BlogPostCard index={index} post={post} siteInfo={siteInfo} />
-            </div>
-          ))}
-        </div>
-        {showPagination && (
-          <PaginationSimple page={page} totalPage={totalPage} />
-        )}
-      </div>
-    )
+  <div className='w-full'>
+    <div className='pt-6'></div>
+    {/* 文章列表 */}
+    <div className='pt-4 flex flex-wrap pb-12'>
+      {posts
+        ?.sort((a, b) => {
+          const dateA = new Date(a?.lastEditedDay || a.date?.start_date );
+          const dateB = new Date( b?.lastEditedDay|| b.date?.start_date );
+          return dateB - dateA; // 最新日期优先
+        })
+        .map((post, index) => (
+          <div key={post.id} className='xl:w-1/3 md:w-1/2 w-full p-4'>
+            <BlogPostCard index={index} post={post} siteInfo={siteInfo} />
+          </div>
+        ))}
+    </div>
+    {showPagination && (
+      <PaginationSimple page={page} totalPage={totalPage} />
+    )}
+  </div>
+    ) 
   }
 }
 
