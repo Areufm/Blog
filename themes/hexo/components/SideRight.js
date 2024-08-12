@@ -60,11 +60,17 @@ export default function SideRight(props) {
           />
         </Card>
       )}
+
       {showTag && (
         <Card>
           <TagGroups tags={tags} currentTag={currentTag} />
         </Card>
       )}
+
+      {post && post.toc && post.toc.length > 1 && <Card>
+        <Catalog toc={post.toc} />
+      </Card>}
+
       {siteConfig('HEXO_WIDGET_LATEST_POSTS', null, CONFIG) && latestPosts && latestPosts.length > 0 && <Card>
         <LatestPostsGroup {...props} />
       </Card>}
@@ -74,10 +80,6 @@ export default function SideRight(props) {
       {siteConfig('COMMENT_WALINE_SERVER_URL') && siteConfig('COMMENT_WALINE_RECENT') && <HexoRecentComments/>}
 
       <div className='sticky top-20'>
-        {post && post.toc && post.toc.length > 1 && <Card>
-          <Catalog toc={post.toc} />
-        </Card>}
-
         {rightAreaSlot}
         <FaceBookPage/>
         <Live2D />
