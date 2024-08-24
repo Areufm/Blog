@@ -20,7 +20,9 @@ const BlogPostListPage = ({ page = 1, posts = [], postCount, siteInfo }) => {
   if (!posts || posts.length === 0 || page > totalPage) {
     return <BlogPostListEmpty />
   } else {
+    console.log('page', page);
     console.log('posts:', posts);
+    console.log('postCount', postCount);
     
     return (
       <div id='container' className='w-full'>

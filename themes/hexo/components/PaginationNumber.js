@@ -21,7 +21,7 @@ const PaginationNumber = ({ page, totalPage }) => {
     .replace(/\/$/, '')
     .replace('.html', '')
   const pages = generatePages(pagePrefix, page, currentPage, totalPage)
-console.log('pages:', pages);
+
 
 
 

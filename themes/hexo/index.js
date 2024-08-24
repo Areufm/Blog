@@ -181,6 +181,8 @@ const LayoutIndex = props => {
  * @returns
  */
 const LayoutPostList = props => {
+  console.log('props:', props);
+  
   return (
     <div className='pt-8'>
       <SlotBar {...props} />
