@@ -9,6 +9,9 @@ import { useRouter } from 'next/router'
  * @constructor
  */
 const PaginationNumber = ({ page, totalPage }) => {
+  console.log('page:',page);
+  
+  console.log('totalPage:',totalPage);
   const router = useRouter()
   const currentPage = +page
   const showNext = page < totalPage
@@ -18,6 +21,9 @@ const PaginationNumber = ({ page, totalPage }) => {
     .replace(/\/$/, '')
     .replace('.html', '')
   const pages = generatePages(pagePrefix, page, currentPage, totalPage)
+console.log('pages:', pages);
+
+
 
   return (
     <div className='mt-10 mb-5 flex justify-center items-end font-medium text-indigo-400 duration-500 py-3 space-x-2'>

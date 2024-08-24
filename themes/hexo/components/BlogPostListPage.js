@@ -20,6 +20,8 @@ const BlogPostListPage = ({ page = 1, posts = [], postCount, siteInfo }) => {
   if (!posts || posts.length === 0 || page > totalPage) {
     return <BlogPostListEmpty />
   } else {
+    console.log('posts:', posts);
+    
     return (
       <div id='container' className='w-full'>
         {/* 文章列表 */}
