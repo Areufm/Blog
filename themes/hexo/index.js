@@ -306,7 +306,7 @@ const LayoutSlug = props => {
               <ShareBar post={post} />
               {post?.type === 'Post' && (
                 <>
-                  {/* <ArticleCopyright {...props} /> */}
+                  <ArticleCopyright {...props} />
                   <ArticleRecommend {...props} />
                   <ArticleAdjacent {...props} />
                 </>
