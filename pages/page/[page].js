@@ -40,14 +40,14 @@ export async function getStaticProps({ params: { page } }) {
   const { allPages } = props
   const POST_PREVIEW_LINES = siteConfig(
     'POST_PREVIEW_LINES',
-    12,
+    5,
     props?.NOTION_CONFIG
   )
 
   const allPosts = allPages?.filter(
     page => page.type === 'Post' && page.status === 'Published'
   )
-  const POSTS_PER_PAGE = siteConfig('POSTS_PER_PAGE', 12, props?.NOTION_CONFIG)
+  const POSTS_PER_PAGE = siteConfig('POSTS_PER_PAGE', 5, props?.NOTION_CONFIG)
   // 处理分页
   props.posts = allPosts.slice(
     POSTS_PER_PAGE * (page - 1),
