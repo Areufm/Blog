@@ -30,7 +30,7 @@ export async function getStaticProps(req) {
   const props = await getGlobalData({ from, locale })
   const POST_PREVIEW_LINES = siteConfig(
     'POST_PREVIEW_LINES',
-    12,
+    5,
     props?.NOTION_CONFIG
   )
   props.posts = props.allPages?.filter(
